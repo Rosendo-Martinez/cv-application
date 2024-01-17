@@ -1,4 +1,8 @@
-export default function CV({ personalDetails, technicalKnowledge }) {
+export default function CV({
+  personalDetails,
+  technicalKnowledge,
+  projectList,
+}) {
   const {
     fullName,
     title,
@@ -60,6 +64,23 @@ export default function CV({ personalDetails, technicalKnowledge }) {
             })}
           </ul>
         </div>
+      </div>
+      <div>
+        <p>Projects</p>
+        {projectList.map((project, index) => {
+          return (
+            <div key={index}>
+              <p>
+                {project.name} - {project.type}
+              </p>
+              <ul>
+                {project.bullitPoints.map((item, index) => {
+                  return <li key={index}>{item}</li>;
+                })}
+              </ul>
+            </div>
+          );
+        })}
       </div>
     </div>
   );
