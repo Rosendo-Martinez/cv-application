@@ -6,6 +6,8 @@ import ProjectListContainer from "./components/ProjectListContainer";
 import Project from "./components/Project";
 import WorkListContainer from "./components/WorkListContainer";
 import Work from "./components/Work";
+import EducationListContainer from "./components/EducationListContainer";
+import Education from "./components/Education";
 
 function App() {
   const [personalDetails, setPersonalDetails] = useState({
@@ -29,6 +31,8 @@ function App() {
   const [projectList, setProjectList] = useState([]);
 
   const [workList, setWorkList] = useState([]);
+
+  const [educationList, setEducationList] = useState([]);
 
   function handlePersonalDetailsChange(event) {
     const propertyKey = event.target.id;
@@ -106,6 +110,7 @@ function App() {
         technicalKnowledge={technicalKnowledge}
         projectList={projectList}
         workList={workList}
+        educationList={educationList}
       />
       <PersonalDetails
         data={personalDetails}
@@ -190,6 +195,31 @@ function App() {
           );
         })}
       </WorkListContainer>
+      <EducationListContainer
+        addEducation={() =>
+          addItem(educationList, setEducationList, {
+            name: "",
+            degree: "",
+            date: "",
+          })
+        }
+      >
+        {educationList.map((education, index) => {
+          return (
+            <Education
+              key={index}
+              educationIndex={index}
+              data={education}
+              handleChange={(event) =>
+                handleItemChange(event, educationList, setEducationList)
+              }
+              deleteEducation={(indexOfEducation) =>
+                deleteItem(educationList, setEducationList, indexOfEducation)
+              }
+            />
+          );
+        })}
+      </EducationListContainer>
     </>
   );
 }

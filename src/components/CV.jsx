@@ -3,6 +3,7 @@ export default function CV({
   technicalKnowledge,
   projectList,
   workList,
+  educationList,
 }) {
   const {
     fullName,
@@ -99,6 +100,17 @@ export default function CV({
                 })}
               </ul>
             </div>
+          );
+        })}
+      </div>
+      <div>
+        <p>Education</p>
+        {educationList.map((education, index) => {
+          return (
+            <p key={index}>
+              School Name: {education.name} | Degree: {education.degree} | Date:{" "}
+              {education.date}
+            </p>
           );
         })}
       </div>
