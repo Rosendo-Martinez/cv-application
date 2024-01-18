@@ -2,6 +2,7 @@ export default function CV({
   personalDetails,
   technicalKnowledge,
   projectList,
+  workList,
 }) {
   const {
     fullName,
@@ -75,6 +76,25 @@ export default function CV({
               </p>
               <ul>
                 {project.bullitPoints.map((item, index) => {
+                  return <li key={index}>{item}</li>;
+                })}
+              </ul>
+            </div>
+          );
+        })}
+      </div>
+      <div>
+        <p>Work</p>
+        {workList.map((work, index) => {
+          return (
+            <div key={index}>
+              <p>
+                Job Title: {work.jobTitle} | Company: {work.companyName} |
+                Location: {work.workPlaceLocation} | From {work.startDate} To{" "}
+                {work.endDate}
+              </p>
+              <ul>
+                {work.bullitPoints.map((item, index) => {
                   return <li key={index}>{item}</li>;
                 })}
               </ul>

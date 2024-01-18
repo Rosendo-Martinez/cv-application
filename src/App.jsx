@@ -4,6 +4,8 @@ import CV from "./components/CV";
 import TechnicalKnowledge from "./components/TechnicalKnowledge";
 import ProjectListContainer from "./components/ProjectListContainer";
 import Project from "./components/Project";
+import WorkListContainer from "./components/WorkListContainer";
+import Work from "./components/Work";
 
 function App() {
   const [personalDetails, setPersonalDetails] = useState({
@@ -25,6 +27,8 @@ function App() {
   });
 
   const [projectList, setProjectList] = useState([]);
+
+  const [workList, setWorkList] = useState([]);
 
   function handlePersonalDetailsChange(event) {
     const propertyKey = event.target.id;
@@ -101,6 +105,7 @@ function App() {
         personalDetails={personalDetails}
         technicalKnowledge={technicalKnowledge}
         projectList={projectList}
+        workList={workList}
       />
       <PersonalDetails
         data={personalDetails}
@@ -139,13 +144,52 @@ function App() {
                   indexOfBullitPoint,
                 )
               }
-              deleteProject={(indexOfitem) =>
-                deleteItem(projectList, setProjectList, indexOfitem)
+              deleteProject={(indexOfProject) =>
+                deleteItem(projectList, setProjectList, indexOfProject)
               }
             />
           );
         })}
       </ProjectListContainer>
+      <WorkListContainer
+        addWork={() =>
+          addItem(workList, setWorkList, {
+            jobTitle: "",
+            companyName: "",
+            workPlaceLocation: "",
+            startDate: "",
+            endDate: "",
+            bullitPoints: [],
+          })
+        }
+      >
+        {workList.map((work, index) => {
+          return (
+            <Work
+              key={index}
+              workIndex={index}
+              data={work}
+              handleChange={(event) =>
+                handleItemChange(event, workList, setWorkList)
+              }
+              addBullitPoint={(indexOfWork) =>
+                addBullitPoint(workList, setWorkList, indexOfWork)
+              }
+              deleteBullitPoint={(indexOfWork, indexOfBullitPoint) =>
+                deleteBullitPoint(
+                  workList,
+                  setWorkList,
+                  indexOfWork,
+                  indexOfBullitPoint,
+                )
+              }
+              deleteWork={(indexOfWork) =>
+                deleteItem(workList, setWorkList, indexOfWork)
+              }
+            />
+          );
+        })}
+      </WorkListContainer>
     </>
   );
 }
