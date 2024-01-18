@@ -8,6 +8,16 @@ import WorkListContainer from "./components/WorkListContainer";
 import Work from "./components/Work";
 import EducationListContainer from "./components/EducationListContainer";
 import Education from "./components/Education";
+import exampleCVData from "./components/exampleCVData";
+
+/**
+ * Feature: load example CV
+ * Why? will be usfull for developing the styling.
+ *
+ * How?
+ *  I think I will put example cv data in its own file and import it to this one.
+ *  Add a button that users can press to load example CV.
+ */
 
 function App() {
   const [personalDetails, setPersonalDetails] = useState({
@@ -103,8 +113,17 @@ function App() {
     setList(updatedList);
   }
 
+  function loadExampleCV() {
+    setPersonalDetails(exampleCVData.personalDetails);
+    setTechnicalKnowledge(exampleCVData.technicalKnowledge);
+    setProjectList(exampleCVData.projectList);
+    setWorkList(exampleCVData.workList);
+    setEducationList(exampleCVData.educationList);
+  }
+
   return (
     <>
+      <button onClick={loadExampleCV}>Load Example CV</button>
       <CV
         personalDetails={personalDetails}
         technicalKnowledge={technicalKnowledge}
