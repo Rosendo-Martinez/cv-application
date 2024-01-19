@@ -12,7 +12,7 @@ const exampleCVData = {
   technicalKnowledge: {
     languages: ["JavaScript", "Python", "Java", "C#", "SQL", ""],
     frameworks: ["React", "Express", "Spring", "Rails", "", ""],
-    databases: ["MySQL", "MongoDB", "Microsoft Access"],
+    databases: ["MySQL", "MongoDB", "MS Access"],
     tools: ["Git", "NPM", "CLI"],
   },
   projectList: [

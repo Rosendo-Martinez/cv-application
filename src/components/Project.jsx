@@ -9,46 +9,57 @@ export default function Project({
   const { name, type, bullitPoints } = data;
 
   return (
-    <div>
-      <label htmlFor={`${projectIndex}-name`}>Project Name:</label>
-      <input
-        type="text"
-        id={`${projectIndex}-name`}
-        value={name}
-        onChange={handleChange}
-      />
-      <label htmlFor={`${projectIndex}-type`}>Project Type:</label>
-      <input
-        type="text"
-        id={`${projectIndex}-type`}
-        value={type}
-        onChange={handleChange}
-      />
-      <div>
+    <div className="project">
+      <h3>Project {projectIndex + 1}</h3>
+      <div className="label-and-input-container">
+        <label htmlFor={`${projectIndex}-name`}>Project Name</label>
+        <input
+          type="text"
+          id={`${projectIndex}-name`}
+          value={name}
+          onChange={handleChange}
+        />
+      </div>
+      <div className="label-and-input-container">
+        <label htmlFor={`${projectIndex}-type`}>Project Type</label>
+        <input
+          type="text"
+          id={`${projectIndex}-type`}
+          value={type}
+          onChange={handleChange}
+        />
+      </div>
+      <div className="bullitpoints-container">
         <p>Bullit Points</p>
         {bullitPoints.map((item, index) => {
           return (
             <div key={index}>
-              <label htmlFor={`${projectIndex}-bullitPoints-${index}`}>
-                {index + 1}:
-              </label>
-              <input
-                type="text"
-                id={`${projectIndex}-bullitPoints-${index}`}
-                value={item}
-                onChange={handleChange}
-              />
-              <button onClick={() => deleteBullitPoint(projectIndex, index)}>
-                Delete Bullit Point
-              </button>
+              <div className="bullitpoint">
+                <input
+                  type="text"
+                  id={`${projectIndex}-bullitPoints-${index}`}
+                  value={item}
+                  onChange={handleChange}
+                  placeholder={`bullit point ${index + 1}`}
+                />
+                <button onClick={() => deleteBullitPoint(projectIndex, index)}>
+                  Delete
+                </button>
+              </div>
             </div>
           );
         })}
-        <button onClick={() => addBullitPoint(projectIndex)}>
+        <button
+          className="add-bullit-point"
+          onClick={() => addBullitPoint(projectIndex)}
+        >
           Add Bullit Point
         </button>
       </div>
-      <button onClick={() => deleteProject(projectIndex)}>
+      <button
+        className="delete-project"
+        onClick={() => deleteProject(projectIndex)}
+      >
         Delete Project
       </button>
     </div>

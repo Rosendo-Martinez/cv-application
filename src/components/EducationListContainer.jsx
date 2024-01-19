@@ -1,8 +1,11 @@
 export default function EducationListContainer({ children, addEducation }) {
   return (
-    <div>
+    <div className="education-container">
+      <h2>Education</h2>
       {children}
-      <button onClick={addEducation}>Add Education</button>
+      <button className="add-education" onClick={addEducation}>
+        Add Education
+      </button>
     </div>
   );
 }

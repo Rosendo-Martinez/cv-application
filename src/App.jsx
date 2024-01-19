@@ -9,6 +9,7 @@ import Work from "./components/Work";
 import EducationListContainer from "./components/EducationListContainer";
 import Education from "./components/Education";
 import exampleCVData from "./components/exampleCVData";
+import "./styles/App.css";
 
 /**
  * Feature: load example CV
@@ -122,124 +123,130 @@ function App() {
   }
 
   return (
-    <>
-      <button onClick={loadExampleCV}>Load Example CV</button>
-      <CV
-        personalDetails={personalDetails}
-        technicalKnowledge={technicalKnowledge}
-        projectList={projectList}
-        workList={workList}
-        educationList={educationList}
-      />
-      <PersonalDetails
-        data={personalDetails}
-        handleChange={handlePersonalDetailsChange}
-      />
-      <TechnicalKnowledge
-        data={technicalKnowledge}
-        handleChange={handleTechnicalKnowledgeChange}
-      />
-      <ProjectListContainer
-        addProject={() =>
-          addItem(projectList, setProjectList, {
-            name: "",
-            type: "",
-            bullitPoints: [],
-          })
-        }
-      >
-        {projectList.map((project, index) => {
-          return (
-            <Project
-              key={index}
-              projectIndex={index}
-              data={project}
-              handleChange={(event) =>
-                handleItemChange(event, projectList, setProjectList)
-              }
-              addBullitPoint={(indexOfProject) =>
-                addBullitPoint(projectList, setProjectList, indexOfProject)
-              }
-              deleteBullitPoint={(indexOfProject, indexOfBullitPoint) =>
-                deleteBullitPoint(
-                  projectList,
-                  setProjectList,
-                  indexOfProject,
-                  indexOfBullitPoint,
-                )
-              }
-              deleteProject={(indexOfProject) =>
-                deleteItem(projectList, setProjectList, indexOfProject)
-              }
-            />
-          );
-        })}
-      </ProjectListContainer>
-      <WorkListContainer
-        addWork={() =>
-          addItem(workList, setWorkList, {
-            jobTitle: "",
-            companyName: "",
-            workPlaceLocation: "",
-            startDate: "",
-            endDate: "",
-            bullitPoints: [],
-          })
-        }
-      >
-        {workList.map((work, index) => {
-          return (
-            <Work
-              key={index}
-              workIndex={index}
-              data={work}
-              handleChange={(event) =>
-                handleItemChange(event, workList, setWorkList)
-              }
-              addBullitPoint={(indexOfWork) =>
-                addBullitPoint(workList, setWorkList, indexOfWork)
-              }
-              deleteBullitPoint={(indexOfWork, indexOfBullitPoint) =>
-                deleteBullitPoint(
-                  workList,
-                  setWorkList,
-                  indexOfWork,
-                  indexOfBullitPoint,
-                )
-              }
-              deleteWork={(indexOfWork) =>
-                deleteItem(workList, setWorkList, indexOfWork)
-              }
-            />
-          );
-        })}
-      </WorkListContainer>
-      <EducationListContainer
-        addEducation={() =>
-          addItem(educationList, setEducationList, {
-            name: "",
-            degree: "",
-            date: "",
-          })
-        }
-      >
-        {educationList.map((education, index) => {
-          return (
-            <Education
-              key={index}
-              educationIndex={index}
-              data={education}
-              handleChange={(event) =>
-                handleItemChange(event, educationList, setEducationList)
-              }
-              deleteEducation={(indexOfEducation) =>
-                deleteItem(educationList, setEducationList, indexOfEducation)
-              }
-            />
-          );
-        })}
-      </EducationListContainer>
-    </>
+    <div id="app">
+      <div className="left inputs-container">
+        <div className="top-bar">
+          <button onClick={loadExampleCV}>Load Example CV</button>
+        </div>
+        <PersonalDetails
+          data={personalDetails}
+          handleChange={handlePersonalDetailsChange}
+        />
+        <TechnicalKnowledge
+          data={technicalKnowledge}
+          handleChange={handleTechnicalKnowledgeChange}
+        />
+        <ProjectListContainer
+          addProject={() =>
+            addItem(projectList, setProjectList, {
+              name: "",
+              type: "",
+              bullitPoints: [],
+            })
+          }
+        >
+          {projectList.map((project, index) => {
+            return (
+              <Project
+                key={index}
+                projectIndex={index}
+                data={project}
+                handleChange={(event) =>
+                  handleItemChange(event, projectList, setProjectList)
+                }
+                addBullitPoint={(indexOfProject) =>
+                  addBullitPoint(projectList, setProjectList, indexOfProject)
+                }
+                deleteBullitPoint={(indexOfProject, indexOfBullitPoint) =>
+                  deleteBullitPoint(
+                    projectList,
+                    setProjectList,
+                    indexOfProject,
+                    indexOfBullitPoint,
+                  )
+                }
+                deleteProject={(indexOfProject) =>
+                  deleteItem(projectList, setProjectList, indexOfProject)
+                }
+              />
+            );
+          })}
+        </ProjectListContainer>
+        <WorkListContainer
+          addWork={() =>
+            addItem(workList, setWorkList, {
+              jobTitle: "",
+              companyName: "",
+              workPlaceLocation: "",
+              startDate: "",
+              endDate: "",
+              bullitPoints: [],
+            })
+          }
+        >
+          {workList.map((work, index) => {
+            return (
+              <Work
+                key={index}
+                workIndex={index}
+                data={work}
+                handleChange={(event) =>
+                  handleItemChange(event, workList, setWorkList)
+                }
+                addBullitPoint={(indexOfWork) =>
+                  addBullitPoint(workList, setWorkList, indexOfWork)
+                }
+                deleteBullitPoint={(indexOfWork, indexOfBullitPoint) =>
+                  deleteBullitPoint(
+                    workList,
+                    setWorkList,
+                    indexOfWork,
+                    indexOfBullitPoint,
+                  )
+                }
+                deleteWork={(indexOfWork) =>
+                  deleteItem(workList, setWorkList, indexOfWork)
+                }
+              />
+            );
+          })}
+        </WorkListContainer>
+        <EducationListContainer
+          addEducation={() =>
+            addItem(educationList, setEducationList, {
+              name: "",
+              degree: "",
+              date: "",
+            })
+          }
+        >
+          {educationList.map((education, index) => {
+            return (
+              <Education
+                key={index}
+                educationIndex={index}
+                data={education}
+                handleChange={(event) =>
+                  handleItemChange(event, educationList, setEducationList)
+                }
+                deleteEducation={(indexOfEducation) =>
+                  deleteItem(educationList, setEducationList, indexOfEducation)
+                }
+              />
+            );
+          })}
+        </EducationListContainer>
+      </div>
+      <div className="right">
+        <CV
+          personalDetails={personalDetails}
+          technicalKnowledge={technicalKnowledge}
+          projectList={projectList}
+          workList={workList}
+          educationList={educationList}
+        />
+      </div>
+    </div>
   );
 }
 

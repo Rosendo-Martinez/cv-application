@@ -1,3 +1,5 @@
+import "../styles/CV.css";
+
 export default function CV({
   personalDetails,
   technicalKnowledge,
@@ -19,47 +21,47 @@ export default function CV({
   const { languages, frameworks, databases, tools } = technicalKnowledge;
 
   return (
-    <div>
-      <div>
+    <div className="cv">
+      <div className="personal-details">
         <h1>{fullName}</h1>
-        <p>
-          {title} in {location}
+        <h2 id="location">
+          <span className="title">{title}</span> in {location}
+        </h2>
+        <p id="phone-and-email">
+          <b>PHONE</b> {phone} | <b>EMAIL</b> {email}
         </p>
-        <p>
-          PHONE {phone} | EMAIL {email}
+        <p id="github-and-linkedIn">
+          <b>GITHUB</b> {githubURL} | <b>LINKEDIN</b> {linkedInURL}
         </p>
-        <p>
-          GITHUB {githubURL} | LINKEDIN {linkedInURL}
-        </p>
-        <p>{headline}</p>
+        <p id="headline">{headline}</p>
       </div>
-      <div>
-        <div>
-          <p>Languages</p>
+      <div className="technical-knowledge">
+        <div className="languages">
+          <h3>Languages</h3>
           <ul>
             {languages.map((item, index) => {
               return <li key={index}>{item}</li>;
             })}
           </ul>
         </div>
-        <div>
-          <p>Frameworks</p>
+        <div className="frameworks">
+          <h3>Frameworks</h3>
           <ul>
             {frameworks.map((item, index) => {
               return <li key={index}>{item}</li>;
             })}
           </ul>
         </div>
-        <div>
-          <p>Databases</p>
+        <div className="databases">
+          <h3>Databases</h3>
           <ul>
             {databases.map((item, index) => {
               return <li key={index}>{item}</li>;
             })}
           </ul>
         </div>
-        <div>
-          <p>Tools</p>
+        <div className="tools">
+          <h3>Tools</h3>
           <ul>
             {tools.map((item, index) => {
               return <li key={index}>{item}</li>;
@@ -67,14 +69,15 @@ export default function CV({
           </ul>
         </div>
       </div>
-      <div>
-        <p>Projects</p>
+      <div className="projects">
+        <h2 className="section-header">Project Experience</h2>
         {projectList.map((project, index) => {
           return (
-            <div key={index}>
-              <p>
-                {project.name} - {project.type}
-              </p>
+            <div className="project" key={index}>
+              <h3>
+                {project.name} -{" "}
+                <span className="no-styling">{project.type}</span>
+              </h3>
               <ul>
                 {project.bullitPoints.map((item, index) => {
                   return <li key={index}>{item}</li>;
@@ -84,16 +87,18 @@ export default function CV({
           );
         })}
       </div>
-      <div>
-        <p>Work</p>
+      <div className="jobs">
+        <h2 className="section-header">Work</h2>
         {workList.map((work, index) => {
           return (
             <div key={index}>
-              <p>
-                Job Title: {work.jobTitle} | Company: {work.companyName} |
-                Location: {work.workPlaceLocation} | From {work.startDate} To{" "}
-                {work.endDate}
-              </p>
+              <h3>
+                {work.jobTitle}
+                <span className="no-styling">, {work.companyName},</span>{" "}
+                <span className="no-styling small-font">
+                  {work.workPlaceLocation}, {work.startDate} - {work.endDate}
+                </span>
+              </h3>
               <ul>
                 {work.bullitPoints.map((item, index) => {
                   return <li key={index}>{item}</li>;
@@ -103,14 +108,17 @@ export default function CV({
           );
         })}
       </div>
-      <div>
-        <p>Education</p>
+      <div className="schools">
+        <h2 className="section-header">Education</h2>
         {educationList.map((education, index) => {
           return (
-            <p key={index}>
-              School Name: {education.name} | Degree: {education.degree} | Date:{" "}
-              {education.date}
-            </p>
+            <h3 key={index}>
+              {education.name}
+              <span className="no-styling">
+                , {education.degree},{" "}
+                <span className="small-font">{education.date}</span>
+              </span>
+            </h3>
           );
         })}
       </div>

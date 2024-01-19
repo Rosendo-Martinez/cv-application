@@ -1,0 +1,132 @@
+html,
+body {
+  margin: 0;
+  --main-bg-color: #f3f4f6;
+
+  background-color: var(--main-bg-color);
+}
+
+#app {
+  display: flex;
+  justify-content: center;
+}
+
+.left,
+.right {
+  flex-grow: 1;
+}
+
+.left {
+  max-width: 800px;
+  padding: 0.75rem;
+  overflow-y: scroll;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+}
+
+.right {
+  max-width: 825px;
+  margin-right: 1rem;
+}
+
+.inputs-container input,
+.inputs-container textarea {
+  background-color: var(--main-bg-color);
+  border: none;
+  padding: 0.75rem;
+  border-radius: 5px;
+}
+
+.label-and-input-container,
+.input-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.label-and-input-container > label {
+  margin-top: 0.75rem;
+  margin-bottom: 0.25rem;
+}
+
+.input-container {
+  margin-top: 1rem;
+}
+
+.inputs-container button {
+  padding: 0.5rem 1rem;
+  border: none;
+  transition: transform 0.25s ease-out 0s;
+  border-radius: 5px;
+  background-color: #354a5f;
+  color: white;
+}
+
+.inputs-container button:hover {
+  transform: scale(1.02);
+  cursor: pointer;
+}
+
+.inputs-container button:active {
+  transform: translateY(2px);
+}
+
+.bullitpoint {
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+.bullitpoint > input {
+  align-self: stretch;
+  flex: 1;
+}
+
+.add-bullit-point,
+.delete-project,
+.add-project,
+.delete-work,
+.add-work,
+.delete-education,
+.add-education {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.add-bullit-point,
+.delete-project,
+.delete-work,
+.delete-education {
+  margin-bottom: 1rem;
+}
+
+.inputs-container .project,
+.inputs-container .work,
+.inputs-container .school {
+  border-bottom: 3px dotted #354a5f;
+  margin-bottom: 1rem;
+}
+
+.personal-details-container,
+.work-container,
+.education-container,
+.technical-knowledge-container,
+.project-container,
+.top-bar {
+  background-color: white;
+  padding: 2rem 1rem;
+  margin: 2rem 0rem;
+  border-radius: 5px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.top-bar {
+  margin-top: 0;
+}
+
+.inputs-container h2 {
+  margin-top: 0;
+}
+
+.bullitpoints-container > p {
+  margin-bottom: 0.5rem;
+}

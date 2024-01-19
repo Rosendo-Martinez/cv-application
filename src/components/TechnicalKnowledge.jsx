@@ -1,16 +1,16 @@
 export default function TechnicalKnowledge({ data, handleChange }) {
   const { languages, frameworks, databases, tools } = data;
 
-  function getLabelsAndInputs(items, idPrefix) {
+  function getLabelsAndInputs(items, idPrefix, placeholderText) {
     return items.map((item, index) => {
       return (
-        <div key={index}>
-          <label htmlFor={`${idPrefix}-${index}`}>{index + 1}:</label>
+        <div className="input-container" key={index}>
           <input
             type="text"
             id={`${idPrefix}-${index}`}
             value={item}
             onChange={handleChange}
+            placeholder={`${placeholderText} ${index + 1}`}
           />
         </div>
       );
@@ -18,22 +18,23 @@ export default function TechnicalKnowledge({ data, handleChange }) {
   }
 
   return (
-    <div>
+    <div className="technical-knowledge-container">
+      <h2>Technical Knowledge</h2>
       <div>
-        <p>Languages</p>
-        {getLabelsAndInputs(languages, "languages")}
+        <h3>Languages</h3>
+        {getLabelsAndInputs(languages, "languages", "language")}
       </div>
       <div>
-        <p>Frameworks</p>
-        {getLabelsAndInputs(frameworks, "frameworks")}
+        <h3>Frameworks</h3>
+        {getLabelsAndInputs(frameworks, "frameworks", "framework")}
       </div>
       <div>
-        <p>Databases</p>
-        {getLabelsAndInputs(databases, "databases")}
+        <h3>Databases</h3>
+        {getLabelsAndInputs(databases, "databases", "database")}
       </div>
       <div>
-        <p>Tools</p>
-        {getLabelsAndInputs(tools, "tools")}
+        <h3>Tools</h3>
+        {getLabelsAndInputs(tools, "tools", "tool")}
       </div>
     </div>
   );

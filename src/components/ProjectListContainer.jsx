@@ -1,8 +1,11 @@
 export default function ProjectListContainer({ children, addProject }) {
   return (
-    <div>
+    <div className="project-container">
+      <h2>Projects</h2>
       {children}
-      <button onClick={addProject}>Add Project</button>
+      <button className="add-project" onClick={addProject}>
+        Add Project
+      </button>
     </div>
   );
 }

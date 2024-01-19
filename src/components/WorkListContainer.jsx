@@ -1,8 +1,11 @@
 export default function WorkListContainer({ children, addWork }) {
   return (
-    <div>
+    <div className="work-container">
+      <h2>Work Experience</h2>
       {children}
-      <button onClick={addWork}>Add Work</button>
+      <button className="add-work" onClick={addWork}>
+        Add Work
+      </button>
     </div>
   );
 }
