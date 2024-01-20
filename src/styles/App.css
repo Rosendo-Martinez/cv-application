@@ -184,3 +184,7 @@ body {
 .modal > h2 {
   margin: 0;
 }
+
+.load-cv-data-buttons-container > button {
+  margin-right: 1rem;
+}

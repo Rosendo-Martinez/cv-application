@@ -10,6 +10,7 @@ import EducationListContainer from "./components/EducationListContainer";
 import Education from "./components/Education";
 import exampleCVData from "./components/exampleCVData";
 import Print from "./components/Print";
+import emptyCVData from "./components/emptyCVData";
 import "./styles/App.css";
 
 function App() {
@@ -115,23 +116,29 @@ function App() {
     setList(updatedList);
   }
 
-  function loadExampleCV() {
-    setPersonalDetails(exampleCVData.personalDetails);
-    setTechnicalKnowledge(exampleCVData.technicalKnowledge);
-    setProjectList(exampleCVData.projectList);
-    setWorkList(exampleCVData.workList);
-    setEducationList(exampleCVData.educationList);
+  function loadCVData(cvData) {
+    setPersonalDetails(cvData.personalDetails);
+    setTechnicalKnowledge(cvData.technicalKnowledge);
+    setProjectList(cvData.projectList);
+    setWorkList(cvData.workList);
+    setEducationList(cvData.educationList);
   }
 
   return (
     <div id="app">
       <div className="left inputs-container">
         <div className="top-bar">
-          <button onClick={loadExampleCV}>Load Example CV</button>
+          <div className="load-cv-data-buttons-container">
+            <button onClick={() => loadCVData(exampleCVData)}>
+              Load Example CV
+            </button>
+            <button onClick={() => loadCVData(emptyCVData)}>Clear CV</button>
+          </div>
           <button
             onClick={() => {
               setIsShown({ ...isShown, print: !isShown.print });
             }}
+            className="print-button"
           >
             Print
           </button>
