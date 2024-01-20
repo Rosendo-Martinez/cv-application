@@ -7,10 +7,9 @@
   --cyan: #354a5f;
   --light-blue: #5c94ce;
 
-  /* DEV ONLY */
   padding: 1rem;
   border: 1px solid black;
-  margin: 2rem 0;
+  margin: 1.1rem;
   background-color: white;
 }
 
