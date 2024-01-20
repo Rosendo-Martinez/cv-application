@@ -53,7 +53,8 @@ body {
   margin-top: 1rem;
 }
 
-.inputs-container button {
+.inputs-container button,
+.modal-button {
   padding: 0.5rem 1rem;
   border: none;
   transition: transform 0.25s ease-out 0s;
@@ -62,12 +63,14 @@ body {
   color: white;
 }
 
-.inputs-container button:hover {
+.inputs-container button:hover,
+.modal-button:hover {
   transform: scale(1.02);
   cursor: pointer;
 }
 
-.inputs-container button:active {
+.inputs-container button:active,
+.modal-button:active {
   transform: translateY(2px);
 }
 
@@ -94,7 +97,8 @@ body {
 
 .add-work,
 .delete-education,
-.add-education {
+.add-education,
+.add-project {
   margin-top: 1rem;
 }
 
@@ -127,6 +131,8 @@ body {
 
 .top-bar {
   margin-top: 0;
+  display: flex;
+  justify-content: space-between;
 }
 
 .inputs-container h2 {
@@ -153,4 +159,28 @@ body {
 
 .title-and-toggle-show-container > h2 {
   margin-bottom: 0;
+}
+
+.modal-container.open {
+  position: fixed;
+  top: 0;
+  background-color: #354a5f55;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  /* margin: auto; */
+  background-color: white;
+  padding: 3rem 1rem;
+  border-radius: 5px;
+  margin: 5rem;
+  max-width: 600px;
+}
+
+.modal > h2 {
+  margin: 0;
 }

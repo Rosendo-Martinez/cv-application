@@ -9,6 +9,7 @@ import Work from "./components/Work";
 import EducationListContainer from "./components/EducationListContainer";
 import Education from "./components/Education";
 import exampleCVData from "./components/exampleCVData";
+import Print from "./components/Print";
 import "./styles/App.css";
 
 function App() {
@@ -42,6 +43,7 @@ function App() {
     project: true,
     work: true,
     education: true,
+    print: false,
   });
 
   function handlePersonalDetailsChange(event) {
@@ -126,6 +128,13 @@ function App() {
       <div className="left inputs-container">
         <div className="top-bar">
           <button onClick={loadExampleCV}>Load Example CV</button>
+          <button
+            onClick={() => {
+              setIsShown({ ...isShown, print: !isShown.print });
+            }}
+          >
+            Print
+          </button>
         </div>
         <PersonalDetails
           data={personalDetails}
@@ -271,6 +280,12 @@ function App() {
           educationList={educationList}
         />
       </div>
+      <Print
+        toggleModal={() => {
+          setIsShown({ ...isShown, print: !isShown.print });
+        }}
+        isOpen={isShown.print}
+      />
     </div>
   );
 }
