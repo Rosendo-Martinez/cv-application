@@ -11,15 +11,6 @@ import Education from "./components/Education";
 import exampleCVData from "./components/exampleCVData";
 import "./styles/App.css";
 
-/**
- * Feature: load example CV
- * Why? will be usfull for developing the styling.
- *
- * How?
- *  I think I will put example cv data in its own file and import it to this one.
- *  Add a button that users can press to load example CV.
- */
-
 function App() {
   const [personalDetails, setPersonalDetails] = useState({
     fullName: "",
@@ -44,6 +35,14 @@ function App() {
   const [workList, setWorkList] = useState([]);
 
   const [educationList, setEducationList] = useState([]);
+
+  const [isShown, setIsShown] = useState({
+    personalDetails: true,
+    technicalKnowledge: true,
+    project: true,
+    work: true,
+    education: true,
+  });
 
   function handlePersonalDetailsChange(event) {
     const propertyKey = event.target.id;
@@ -131,10 +130,24 @@ function App() {
         <PersonalDetails
           data={personalDetails}
           handleChange={handlePersonalDetailsChange}
+          toggleShow={() => {
+            setIsShown({
+              ...isShown,
+              personalDetails: !isShown.personalDetails,
+            });
+          }}
+          isOpen={isShown.personalDetails}
         />
         <TechnicalKnowledge
           data={technicalKnowledge}
           handleChange={handleTechnicalKnowledgeChange}
+          toggleShow={() => {
+            setIsShown({
+              ...isShown,
+              technicalKnowledge: !isShown.technicalKnowledge,
+            });
+          }}
+          isOpen={isShown.technicalKnowledge}
         />
         <ProjectListContainer
           addProject={() =>
@@ -144,6 +157,10 @@ function App() {
               bullitPoints: [],
             })
           }
+          toggleShow={() => {
+            setIsShown({ ...isShown, project: !isShown.project });
+          }}
+          isOpen={isShown.project}
         >
           {projectList.map((project, index) => {
             return (
@@ -183,6 +200,10 @@ function App() {
               bullitPoints: [],
             })
           }
+          toggleShow={() => {
+            setIsShown({ ...isShown, work: !isShown.work });
+          }}
+          isOpen={isShown.work}
         >
           {workList.map((work, index) => {
             return (
@@ -219,6 +240,10 @@ function App() {
               date: "",
             })
           }
+          toggleShow={() => {
+            setIsShown({ ...isShown, education: !isShown.education });
+          }}
+          isOpen={isShown.education}
         >
           {educationList.map((education, index) => {
             return (

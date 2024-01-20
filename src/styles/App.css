@@ -92,6 +92,12 @@ body {
   box-sizing: border-box;
 }
 
+.add-work,
+.delete-education,
+.add-education {
+  margin-top: 1rem;
+}
+
 .add-bullit-point,
 .delete-project,
 .delete-work,
@@ -103,7 +109,7 @@ body {
 .inputs-container .work,
 .inputs-container .school {
   border-bottom: 3px dotted #354a5f;
-  margin-bottom: 1rem;
+  /* margin-bottom: 1rem; */
 }
 
 .personal-details-container,
@@ -129,4 +135,22 @@ body {
 
 .bullitpoints-container > p {
   margin-bottom: 0.5rem;
+}
+
+.closed {
+  display: none;
+}
+
+.open {
+  display: block;
+}
+
+.title-and-toggle-show-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title-and-toggle-show-container > h2 {
+  margin-bottom: 0;
 }
