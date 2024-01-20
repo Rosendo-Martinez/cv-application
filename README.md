@@ -1,6 +1,6 @@
 # CV Generator Application
 
-This website lets users create a CV by simply inputing thier information.
+This website lets users create a CV by simply inputing their information.
 
 **Live demo [link](https://rosendo-martinez.github.io/cv-application/)**. 👈
 
@@ -10,6 +10,10 @@ This website lets users create a CV by simply inputing thier information.
 - JavaScript
 - CSS
 - HTML
+
+### What I learned:
+- The importance of properly breaking up tasks.
+- The importance of avoiding premature optimization.
 
 # Screenshots 
 
