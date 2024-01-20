@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import PersonalDetails from "./components/PersonalDetails";
 import CV from "./components/CV";
 import TechnicalKnowledge from "./components/TechnicalKnowledge";
@@ -40,12 +40,16 @@ function App() {
 
   const [isShown, setIsShown] = useState({
     personalDetails: true,
-    technicalKnowledge: true,
-    project: true,
-    work: true,
-    education: true,
+    technicalKnowledge: false,
+    project: false,
+    work: false,
+    education: false,
     print: false,
   });
+
+  useEffect(() => {
+    loadCVData(exampleCVData);
+  }, []);
 
   function handlePersonalDetailsChange(event) {
     const propertyKey = event.target.id;
